@@ -52,21 +52,14 @@ export const useGameState = () => {
     if (!isPlaying || isLevelComplete || isGameComplete) return;
     
     if (timeLeft <= 0) {
-      // Time's up penalty
-      const newErrors = errors + 1;
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setErrors(newErrors);
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+      // Time's up: Game Over
       setTimeLeft(20); // Reset timer
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFeedback({ message: '¡Se acabó el tiempo!', type: 'error' });
       
-      if (newErrors >= 3) {
-        setTimeout(() => {
-          setFeedback({ message: 'Nivel Reiniciado', type: 'error' });
-          restartLevel();
-        }, 1500);
-      }
+      setTimeout(() => {
+        restartGame();
+      }, 1500);
+      
       return;
     }
 

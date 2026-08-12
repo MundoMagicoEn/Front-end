@@ -97,8 +97,8 @@ export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect })
                 />
               </div>
             ) : (
-              /* Undiscovered state (Invisible to increase difficulty) */
-              <div className="relative w-12 h-12 flex items-center justify-center opacity-0 hover:opacity-10 transition-opacity duration-300">
+              /* Undiscovered state (Invisible to increase difficulty but larger hitbox) */
+              <div className="relative w-28 h-28 md:w-36 md:h-36 flex items-center justify-center opacity-0 hover:opacity-10 transition-opacity duration-300">
                 <div
                   className="w-full h-full rounded-full"
                   style={{ background: 'white' }}

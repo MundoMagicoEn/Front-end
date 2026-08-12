@@ -31,10 +31,10 @@ export const InstructionsModal = ({ onStart }) => {
             <strong className="text-indigo-400">1. Selecciona:</strong> Haz clic en una palabra de la lista de la derecha.
           </p>
           <p>
-            <strong className="text-purple-400">2. Explora:</strong> Mueve el mouse sobre la imagen para encontrar el objeto oculto (ya no hay marcas visuales que te ayuden 🕵️‍♂️).
+            <strong className="text-purple-400">2. Explora:</strong> Mueve el mouse sobre la imagen para encontrar el objeto oculto.
           </p>
           <p>
-            <strong className="text-pink-400">3. Rápido:</strong> ¡Tienes <strong>20 segundos</strong> por nivel! Si el tiempo llega a 0, perderás una vida.
+            <strong className="text-pink-400">3. Rápido:</strong> ¡Tienes <strong>20 segundos</strong> por nivel! Si el tiempo llega a 0, ¡perderás y volverás al inicio de todo!
           </p>
           <p className="text-center text-yellow-400 font-bold mt-4">
             ¡Tienes 3 vidas! ¿Podrás pasar los 10 niveles?
