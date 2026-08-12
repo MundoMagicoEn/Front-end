@@ -71,10 +71,15 @@ export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect })
             disabled={isFound}
             title={obj.translation}
             className={clsx(
-              'absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300',
+              'absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 flex items-center justify-center',
               isFound ? 'cursor-default' : 'cursor-pointer group'
             )}
-            style={{ top: `${obj.top}%`, left: `${obj.left}%` }}
+            style={{ 
+              top: `${obj.top}%`, 
+              left: `${obj.left}%`,
+              width: `${obj.width || 20}%`,
+              height: `${obj.height || 20}%`
+            }}
           >
             {isFound ? (
               /* Found state */
@@ -97,10 +102,10 @@ export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect })
                 />
               </div>
             ) : (
-              /* Undiscovered state (Invisible to increase difficulty but larger hitbox) */
-              <div className="relative w-28 h-28 md:w-36 md:h-36 flex items-center justify-center opacity-0 hover:opacity-10 transition-opacity duration-300">
+              /* Undiscovered state (Invisible to increase difficulty but fills dynamic hitbox) */
+              <div className="relative w-full h-full flex items-center justify-center opacity-0 hover:opacity-10 transition-opacity duration-300">
                 <div
-                  className="w-full h-full rounded-full"
+                  className="w-full h-full rounded-2xl"
                   style={{ background: 'white' }}
                 />
               </div>

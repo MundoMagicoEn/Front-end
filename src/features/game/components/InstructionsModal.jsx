@@ -23,7 +23,7 @@ export const InstructionsModal = ({ onStart }) => {
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500" />
 
         <h2 className="text-3xl font-black text-white mb-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-          ¿Cómo jugar? 🎮
+          ¿Cómo jugar?
         </h2>
 
         <div className="space-y-4 text-slate-300 text-lg mb-8 text-left">
