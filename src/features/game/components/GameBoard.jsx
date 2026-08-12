@@ -9,14 +9,15 @@ export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect })
       className="relative w-full rounded-2xl overflow-hidden"
       style={{
         boxShadow: '0 25px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08)',
+        /* Aspect ratio 1:1 ensures top/left/width/height percentages all reference the same dimension */
+        aspectRatio: '1 / 1',
       }}
     >
-      {/* Image */}
+      {/* Image fills the square container */}
       <img
         src={level.image}
         alt={level.name}
-        className="w-full h-auto object-cover block"
-        style={{ display: 'block', minHeight: '300px', objectFit: 'cover' }}
+        className="absolute inset-0 w-full h-full object-cover block"
       />
 
       {/* Top overlay gradient */}
@@ -63,6 +64,8 @@ export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect })
       {/* Hotspots */}
       {level.objects.map((obj) => {
         const isFound = foundObjects.includes(obj.id);
+        const w = obj.width || 12;
+        const h = obj.height || 12;
 
         return (
           <button
@@ -71,14 +74,15 @@ export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect })
             disabled={isFound}
             title={obj.translation}
             className={clsx(
-              'absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 flex items-center justify-center',
-              isFound ? 'cursor-default' : 'cursor-pointer group'
+              'absolute transition-all duration-300 flex items-center justify-center',
+              isFound ? 'cursor-default' : 'cursor-pointer'
             )}
-            style={{ 
-              top: `${obj.top}%`, 
-              left: `${obj.left}%`,
-              width: `${obj.width || 20}%`,
-              height: `${obj.height || 20}%`
+            style={{
+              /* top/left are center of object; shift by half width/height to align */
+              top: `${obj.top - h / 2}%`,
+              left: `${obj.left - w / 2}%`,
+              width: `${w}%`,
+              height: `${h}%`,
             }}
           >
             {isFound ? (
@@ -102,13 +106,8 @@ export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect })
                 />
               </div>
             ) : (
-              /* Undiscovered state (Invisible to increase difficulty but fills dynamic hitbox) */
-              <div className="relative w-full h-full flex items-center justify-center opacity-0 hover:opacity-10 transition-opacity duration-300">
-                <div
-                  className="w-full h-full rounded-2xl"
-                  style={{ background: 'white' }}
-                />
-              </div>
+              /* Undiscovered — transparent, full hitbox coverage */
+              <div className="w-full h-full" />
             )}
           </button>
         );
