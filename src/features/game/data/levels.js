@@ -166,6 +166,114 @@ export const levels = [
         { id: "fork",   word: "FORK",   translation: "tenedor",  top: 72, left: 20, width: 8,  height: 18 },
         { id: "knife",  word: "KNIFE",  translation: "cuchillo", top: 72, left: 70, width: 8,  height: 18 }
       ]
+    },
+    {
+      id: 12,
+      name: "Museum",
+      difficulty: "hard",
+      image: "/images/levels/museum/museum.png",
+      objects: [
+        { id: "dinosaur", word: "DINOSAUR", translation: "dinosaurio", top: 50, left: 60, width: 40, height: 40 },
+        { id: "painting", word: "PAINTING", translation: "pintura",    top: 50, left: 15, width: 25, height: 25 },
+        { id: "statue",   word: "STATUE",   translation: "estatua",    top: 25, left: 5,  width: 15, height: 25 },
+        { id: "guard",    word: "GUARD",    translation: "guardia",    top: 40, left: 90, width: 8,  height: 20 }
+      ]
+    },
+    {
+      id: 13,
+      name: "Library",
+      difficulty: "hard",
+      image: "/images/levels/library/library.png",
+      objects: [
+        { id: "bookshelf", word: "BOOKSHELF", translation: "estantería", top: 30, left: 50, width: 40, height: 30 },
+        { id: "librarian", word: "LIBRARIAN", translation: "bibliotecario", top: 40, left: 35, width: 15, height: 15 },
+        { id: "desk",      word: "DESK",      translation: "escritorio", top: 75, left: 25, width: 20, height: 15 },
+        { id: "computer",  word: "COMPUTER",  translation: "computadora", top: 40, left: 85, width: 12, height: 12 }
+      ]
+    },
+    {
+      id: 14,
+      name: "Cinema",
+      difficulty: "hard",
+      image: "/images/levels/cinema/cinema.png",
+      objects: [
+        { id: "screen",  word: "SCREEN",  translation: "pantalla", top: 20, left: 50, width: 40, height: 25 },
+        { id: "popcorn", word: "POPCORN", translation: "palomitas", top: 65, left: 35, width: 5,  height: 10 },
+        { id: "ticket",  word: "TICKET",  translation: "boleto",   top: 85, left: 50, width: 10, height: 5 },
+        { id: "seat",    word: "SEAT",    translation: "asiento",  top: 80, left: 80, width: 20, height: 30 }
+      ]
+    },
+    {
+      id: 15,
+      name: "Airport",
+      difficulty: "hard",
+      image: "/images/levels/airport/airport.png",
+      objects: [
+        { id: "airplane", word: "AIRPLANE", translation: "avión",    top: 35, left: 65, width: 30, height: 15 },
+        { id: "suitcase", word: "SUITCASE", translation: "maleta",   top: 70, left: 60, width: 8,  height: 15 },
+        { id: "pilot",    word: "PILOT",    translation: "piloto",   top: 65, left: 35, width: 10, height: 25 },
+        { id: "passport", word: "PASSPORT", translation: "pasaporte", top: 78, left: 88, width: 5,  height: 5 }
+      ]
+    },
+    {
+      id: 16,
+      name: "Gym",
+      difficulty: "hard",
+      image: "/images/levels/gym/gym.png",
+      objects: [
+        { id: "dumbbell",  word: "DUMBBELL",  translation: "pesa",       top: 80, left: 20, width: 10, height: 10 },
+        { id: "treadmill", word: "TREADMILL", translation: "caminadora", top: 60, left: 50, width: 30, height: 25 },
+        { id: "towel",     word: "TOWEL",     translation: "toalla",     top: 50, left: 80, width: 10, height: 15 },
+        { id: "bottle",    word: "BOTTLE",    translation: "botella",    top: 70, left: 80, width: 8, height: 12 }
+      ]
+    },
+    {
+      id: 17,
+      name: "Bank",
+      difficulty: "hard",
+      image: "/images/levels/bank/bank.png",
+      objects: [
+        { id: "vault",  word: "VAULT",  translation: "bóveda",   top: 40, left: 50, width: 30, height: 40 },
+        { id: "teller", word: "TELLER", translation: "cajero",   top: 60, left: 20, width: 15, height: 25 },
+        { id: "money",  word: "MONEY",  translation: "dinero",   top: 70, left: 80, width: 15, height: 10 },
+        { id: "check",  word: "CHECK",  translation: "cheque",   top: 75, left: 30, width: 10, height: 8 }
+      ]
+    },
+    {
+      id: 18,
+      name: "Police Station",
+      difficulty: "hard",
+      image: "/images/levels/police/police.png",
+      objects: [
+        { id: "police_officer", word: "OFFICER",  translation: "oficial", top: 60, left: 50, width: 15, height: 35 },
+        { id: "badge",          word: "BADGE",    translation: "placa",   top: 55, left: 50, width: 5, height: 5 },
+        { id: "handcuffs",      word: "HANDCUFFS", translation: "esposas", top: 75, left: 70, width: 10, height: 8 },
+        { id: "police_car",     word: "POLICE CAR", translation: "patrulla", top: 40, left: 20, width: 35, height: 20 }
+      ]
+    },
+    {
+      id: 19,
+      name: "Fire Station",
+      difficulty: "hard",
+      image: "/images/levels/fire_station/fire_station.png",
+      objects: [
+        { id: "fire_truck",  word: "FIRE TRUCK", translation: "camión de bomberos", top: 50, left: 50, width: 45, height: 30 },
+        { id: "hose",        word: "HOSE",       translation: "manguera", top: 80, left: 30, width: 20, height: 10 },
+        { id: "helmet",      word: "HELMET",     translation: "casco",    top: 70, left: 70, width: 10, height: 10 },
+        { id: "firefighter", word: "FIREFIGHTER", translation: "bombero",  top: 60, left: 20, width: 15, height: 35 }
+      ]
+    },
+    {
+      id: 20,
+      name: "Post Office",
+      difficulty: "hard",
+      image: "/images/levels/post_office/post_office.png",
+      objects: [
+        { id: "mailbox", word: "MAILBOX", translation: "buzón",   top: 60, left: 20, width: 15, height: 30 },
+        { id: "letter",  word: "LETTER",  translation: "carta",   top: 75, left: 50, width: 10, height: 8 },
+        { id: "stamp",   word: "STAMP",   translation: "estampilla", top: 75, left: 60, width: 5, height: 5 },
+        { id: "package", word: "PACKAGE", translation: "paquete", top: 80, left: 80, width: 15, height: 15 }
+      ]
     }
   ];
 
