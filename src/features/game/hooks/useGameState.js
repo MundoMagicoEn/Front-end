@@ -58,6 +58,7 @@ export const useGameState = () => {
     if (timeLeft <= 0) {
       // Time's up: Game Over
       playGameOver();
+      clearProgress();
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsGameOver(true);
       return;
@@ -118,6 +119,7 @@ export const useGameState = () => {
       
       if (newErrors >= 3) {
         playGameOver();
+        clearProgress();
         setIsGameOver(true);
       }
     }

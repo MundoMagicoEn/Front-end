@@ -243,8 +243,8 @@ export const Game = () => {
 
       <GameFeedback feedback={feedback} />
 
-      {/* Instructions Modal at the very beginning */}
-      {!isPlaying && currentLevelIndex === 0 && (
+      {/* Instructions Modal at the very beginning or when resuming */}
+      {!isPlaying && (
         <InstructionsModal onStart={startGame} />
       )}
     </div>

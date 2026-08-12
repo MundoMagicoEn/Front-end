@@ -1,9 +1,7 @@
 import { Check, Sparkles } from 'lucide-react';
 import clsx from 'clsx';
-import { useSound } from '../hooks/useSound';
 
 export const WordList = ({ words, foundObjects, selectedWord, onWordSelect }) => {
-  const { playButton } = useSound();
   return (
     <div
       className="rounded-2xl p-5 w-full md:w-64 flex-shrink-0 flex flex-col"
@@ -46,7 +44,7 @@ export const WordList = ({ words, foundObjects, selectedWord, onWordSelect }) =>
           return (
             <button
               key={obj.id}
-              onClick={() => { playButton(); onWordSelect(obj.id); }}
+              onClick={() => onWordSelect(obj.id)}
               disabled={isFound}
               className={clsx(
                 'relative w-full py-3 px-3 md:py-3.5 md:px-4 rounded-xl font-black text-sm md:text-base transition-all duration-200 flex items-center justify-between overflow-hidden group',
