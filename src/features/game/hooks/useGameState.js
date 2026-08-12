@@ -4,7 +4,7 @@ import { saveProgress, loadProgress, clearProgress } from '../utils/storage';
 import { useSound } from './useSound';
 
 export const useGameState = () => {
-  const { playCorrect, playError, playGameOver, playWin } = useSound();
+  const { playSelectCorrect, playLevelComplete, playError, playGameOver, playWin } = useSound();
 
   const [currentLevelIndex, setCurrentLevelIndex] = useState(() => {
     const saved = loadProgress();
@@ -100,12 +100,12 @@ export const useGameState = () => {
         if (currentLevelIndex === levels.length - 1) {
           playWin();
         } else {
-          playCorrect();
+          playLevelComplete();
         }
         setFeedback({ message: 'Level Complete!', type: 'success' });
         setSelectedWord(null);
       } else {
-        playCorrect();
+        playSelectCorrect();
         setFeedback({ message: 'Correct!', type: 'success' });
         setSelectedWord(null);
       }

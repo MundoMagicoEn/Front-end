@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { PlayCircle, BookOpen, Star, Zap, Target } from 'lucide-react';
+import { useSound } from '../features/game/hooks/useSound';
 
 const FEATURES = [
   { icon: <BookOpen className="w-5 h-5" />, label: '13 Levels', desc: 'Progressive difficulty' },
@@ -9,6 +10,7 @@ const FEATURES = [
 
 export const Home = () => {
   const navigate = useNavigate();
+  const { playButton } = useSound();
 
   return (
     <div className="flex-grow flex flex-col items-center justify-center animate-fade-in-up">
@@ -107,7 +109,7 @@ export const Home = () => {
         <div className="flex justify-center">
           <button
             id="start-game-btn"
-            onClick={() => navigate('/game')}
+            onClick={() => { playButton(); navigate('/game'); }}
             className="group relative inline-flex items-center justify-center gap-3 text-white font-black text-xl py-5 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 active:scale-95"
             style={{
               background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',

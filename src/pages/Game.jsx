@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useGameState } from '../features/game/hooks/useGameState';
+import { useSound } from '../features/game/hooks/useSound';
 import { GameBoard } from '../features/game/components/GameBoard';
 import { WordList } from '../features/game/components/WordList';
 import { GameStatus } from '../features/game/components/GameStatus';
@@ -26,6 +27,7 @@ const OVERLAY_STYLES = {
 
 export const Game = () => {
   const navigate = useNavigate();
+  const { playButton } = useSound();
   const {
     currentLevel,
     currentLevelIndex,
@@ -105,7 +107,7 @@ export const Game = () => {
               </p>
 
               <button
-                onClick={nextLevel}
+                onClick={() => { playButton(); nextLevel(); }}
                 className="inline-flex items-center gap-3 text-white font-black text-xl py-4 px-10 rounded-2xl transition-all duration-200 hover:scale-105 active:scale-95"
                 style={{
                   background: 'linear-gradient(135deg, #6366f1, #a855f7)',
@@ -151,7 +153,7 @@ export const Game = () => {
 
               <div className="flex gap-3 flex-wrap justify-center">
                 <button
-                  onClick={restartGame}
+                  onClick={() => { playButton(); restartGame(); }}
                   className="inline-flex items-center gap-2 text-white font-bold text-base py-3 px-8 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95"
                   style={{
                     background: 'linear-gradient(135deg, #6366f1, #a855f7)',
@@ -161,7 +163,7 @@ export const Game = () => {
                   <RotateCcw className="w-5 h-5" /> Play Again
                 </button>
                 <button
-                  onClick={() => { restartGame(); navigate('/'); }}
+                  onClick={() => { playButton(); restartGame(); navigate('/'); }}
                   className="inline-flex items-center gap-2 font-bold text-base py-3 px-8 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95"
                   style={{
                     background: 'rgba(255,255,255,0.08)',
@@ -205,7 +207,7 @@ export const Game = () => {
 
               <div className="flex gap-3 flex-wrap justify-center">
                 <button
-                  onClick={restartGame}
+                  onClick={() => { playButton(); restartGame(); }}
                   className="inline-flex items-center gap-2 text-white font-bold text-base py-3 px-8 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95"
                   style={{
                     background: 'linear-gradient(135deg, #6366f1, #a855f7)',
@@ -215,7 +217,7 @@ export const Game = () => {
                   <RotateCcw className="w-5 h-5" /> Reintentar
                 </button>
                 <button
-                  onClick={() => navigate('/')}
+                  onClick={() => { playButton(); navigate('/'); }}
                   className="inline-flex items-center gap-2 font-bold text-base py-3 px-8 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95"
                   style={{
                     background: 'rgba(255,255,255,0.08)',

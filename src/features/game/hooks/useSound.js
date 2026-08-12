@@ -1,10 +1,12 @@
 import { useRef, useCallback } from 'react';
 
 // Import sound assets
-import soundCorrect  from '../../../assets/audio/aciertos.mp3';
+import soundLevelComplete from '../../../assets/audio/aciertos.mp3';
+import soundSelectCorrect from '../../../assets/audio/seleccion-correcta.mp3';
 import soundError    from '../../../assets/audio/equivocado.mp3';
 import soundGameOver from '../../../assets/audio/juego-finalizado-perdido.mp3';
 import soundWin      from '../../../assets/audio/juego-finalizado-ganado.mp3';
+import soundButton   from '../../../assets/audio/botones.mp3';
 
 /**
  * Hook that provides game sound effects.
@@ -32,9 +34,11 @@ export const useSound = () => {
   }, []);
 
   return {
-    playCorrect:  () => play(soundCorrect,  0.7),
-    playError:    () => play(soundError,    0.6),
-    playGameOver: () => play(soundGameOver, 0.7),
-    playWin:      () => play(soundWin,      0.8),
+    playLevelComplete: () => play(soundLevelComplete, 0.7),
+    playSelectCorrect: () => play(soundSelectCorrect, 0.7),
+    playError:         () => play(soundError,         0.6),
+    playGameOver:      () => play(soundGameOver,      0.7),
+    playWin:           () => play(soundWin,           0.8),
+    playButton:        () => play(soundButton,        0.5),
   };
 };

@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { Play } from 'lucide-react';
+import { useSound } from '../hooks/useSound';
 
 export const InstructionsModal = ({ onStart }) => {
   const [isOpen, setIsOpen] = useState(true);
+  const { playButton } = useSound();
 
   const handleStart = () => {
+    playButton();
     setIsOpen(false);
     onStart();
   };
