@@ -1,8 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
 import { levels } from '../data/levels';
 import { saveProgress, loadProgress, clearProgress } from '../utils/storage';
+import { useSound } from './useSound';
 
 export const useGameState = () => {
+  const { playCorrect, playError, playGameOver, playWin } = useSound();
+
   const [currentLevelIndex, setCurrentLevelIndex] = useState(() => {
     const saved = loadProgress();
     return saved?.currentLevelIndex ?? 0;
@@ -54,6 +57,7 @@ export const useGameState = () => {
     
     if (timeLeft <= 0) {
       // Time's up: Game Over
+      playGameOver();
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsGameOver(true);
       return;
@@ -64,7 +68,7 @@ export const useGameState = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [timeLeft, isPlaying, isLevelComplete, isGameComplete, isGameOver, errors, restartLevel]);
+  }, [timeLeft, isPlaying, isLevelComplete, isGameComplete, isGameOver, errors, restartLevel, playGameOver]);
 
   const startGame = () => {
     setIsPlaying(true);
@@ -92,19 +96,28 @@ export const useGameState = () => {
       setFoundObjects(nextFound);
       
       if (nextFound.length === currentLevel.objects.length) {
+        // Last object of the LAST level → game complete (You Win)
+        if (currentLevelIndex === levels.length - 1) {
+          playWin();
+        } else {
+          playCorrect();
+        }
         setFeedback({ message: 'Level Complete!', type: 'success' });
         setSelectedWord(null);
       } else {
+        playCorrect();
         setFeedback({ message: 'Correct!', type: 'success' });
         setSelectedWord(null);
       }
     } else {
       // Incorrect!
+      playError();
       const newErrors = errors + 1;
       setErrors(newErrors);
       setFeedback({ message: '¡Inténtalo de nuevo!', type: 'error' });
       
       if (newErrors >= 3) {
+        playGameOver();
         setIsGameOver(true);
       }
     }
