@@ -35,7 +35,8 @@ export const WordList = ({ words, foundObjects, selectedWord, onWordSelect }) =>
       <div className="h-px mb-4" style={{ background: 'rgba(255,255,255,0.08)' }} />
 
       {/* Word buttons */}
-      <div className="flex flex-col gap-2.5 flex-grow">
+      {/* Word buttons */}
+      <div className="grid grid-cols-2 md:flex md:flex-col gap-2.5 flex-grow">
         {words.map((obj, i) => {
           const isFound = foundObjects.includes(obj.id);
           const isSelected = selectedWord === obj.id;
@@ -46,7 +47,7 @@ export const WordList = ({ words, foundObjects, selectedWord, onWordSelect }) =>
               onClick={() => onWordSelect(obj.id)}
               disabled={isFound}
               className={clsx(
-                'relative w-full py-3.5 px-4 rounded-xl font-black text-base transition-all duration-200 flex items-center justify-between overflow-hidden group',
+                'relative w-full py-3 px-3 md:py-3.5 md:px-4 rounded-xl font-black text-sm md:text-base transition-all duration-200 flex items-center justify-between overflow-hidden group',
                 'animate-slide-in-right'
               )}
               style={{
@@ -91,7 +92,7 @@ export const WordList = ({ words, foundObjects, selectedWord, onWordSelect }) =>
             >
               {/* Number pill */}
               <span
-                className="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-black mr-2 flex-shrink-0"
+                className="w-5 h-5 md:w-6 md:h-6 rounded-md md:rounded-lg flex items-center justify-center text-[10px] md:text-xs font-black mr-2 flex-shrink-0"
                 style={{
                   background: isFound
                     ? 'rgba(34,197,94,0.3)'
@@ -104,16 +105,16 @@ export const WordList = ({ words, foundObjects, selectedWord, onWordSelect }) =>
                 {i + 1}
               </span>
 
-              <span className="flex-grow text-left font-black tracking-wide" style={{ fontFamily: "'Poppins', sans-serif", fontSize: '0.9rem' }}>
+              <span className="flex-grow text-left font-black tracking-wide truncate" style={{ fontFamily: "'Poppins', sans-serif", fontSize: '0.85rem' }}>
                 {obj.word}
               </span>
 
               {isFound && (
                 <div
-                  className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
+                  className="w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{ background: 'rgba(34,197,94,0.3)' }}
                 >
-                  <Check className="w-3.5 h-3.5 text-green-400" />
+                  <Check className="w-3 h-3 md:w-3.5 md:h-3.5 text-green-400" />
                 </div>
               )}
 
