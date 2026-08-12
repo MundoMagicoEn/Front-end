@@ -143,20 +143,69 @@ export const levels = [
       { id: "sand",     word: "SAND",     translation: "arena",     top: 92, left: 50, width: 50, height: 12 }
     ]
   },
-  {
-    id: 10,
-    name: "Hospital",
-    difficulty: "hard",
-    image: "/images/levels/hospital/hospital.png",
-    objects: [
-      // Doctor: target only the doctor's head/face to avoid overlapping with the stethoscope
-      { id: "doctor",       word: "DOCTOR",       translation: "doctor",           top: 35, left: 48, width: 12, height: 12 },
-      // Hospital Bed: large bed center-right
-      { id: "hospital_bed", word: "BED",           translation: "cama de hospital", top: 72, left: 65, width: 36, height: 26 },
-      // Stethoscope: on doctor's chest/neck, now completely separate from the doctor's head hitbox
-      { id: "stethoscope",  word: "STETHOSCOPE",   translation: "estetoscopio",     top: 52, left: 48, width: 10, height: 10 },
-      // Ambulance: visible through window upper-left
-      { id: "ambulance",    word: "AMBULANCE",     translation: "ambulancia",       top: 40, left: 20, width: 22, height: 16 }
-    ]
-  }
-];
+    {
+      id: 10,
+      name: "Hospital",
+      difficulty: "hard",
+      image: "/images/levels/hospital/hospital.png",
+      objects: [
+        // Doctor: target only the doctor's head/face to avoid overlapping with the stethoscope
+        { id: "doctor",       word: "DOCTOR",       translation: "doctor",           top: 35, left: 48, width: 12, height: 12 },
+        // Hospital Bed: large bed center-right
+        { id: "hospital_bed", word: "BED",           translation: "cama de hospital", top: 72, left: 65, width: 36, height: 26 },
+        // Stethoscope: on doctor's chest/neck, now completely separate from the doctor's head hitbox
+        { id: "stethoscope",  word: "STETHOSCOPE",   translation: "estetoscopio",     top: 52, left: 48, width: 10, height: 10 },
+        // Ambulance: visible through window upper-left
+        { id: "ambulance",    word: "AMBULANCE",     translation: "ambulancia",       top: 40, left: 20, width: 22, height: 16 }
+      ]
+    },
+    {
+      id: 11,
+      name: "Office",
+      difficulty: "medium",
+      image: "/images/levels/office/office.png",
+      objects: [
+        // Computer: monitor on the desk center
+        { id: "computer", word: "COMPUTER", translation: "computadora", top: 60, left: 47, width: 22, height: 14 },
+        // Printer: on the small side table at the right
+        { id: "printer",  word: "PRINTER",  translation: "impresora",   top: 60, left: 78, width: 14, height: 12 },
+        // Calendar: red-banded calendar on the upper-right wall
+        { id: "calendar", word: "CALENDAR", translation: "calendario",  top: 20, left: 78, width: 12, height: 10 },
+        // Plant: potted plant on the floor left of the desk
+        { id: "plant",    word: "PLANT",    translation: "planta",      top: 76, left: 15, width: 12, height: 16 }
+      ]
+    },
+    {
+      id: 12,
+      name: "Farm",
+      difficulty: "hard",
+      image: "/images/levels/farm/farm.png",
+      objects: [
+        // Barn: big red barn in the center-right field
+        { id: "barn",    word: "BARN",    translation: "granero", top: 39, left: 62, width: 30, height: 34 },
+        // Tractor: blue tractor in the lower center-left
+        { id: "tractor", word: "TRACTOR", translation: "tractor", top: 81, left: 34, width: 26, height: 18 },
+        // Cow: white cow on the right side of the field
+        { id: "cow",     word: "COW",     translation: "vaca",    top: 74, left: 78, width: 24, height: 15 },
+        // Hay: hay bale in the lower-left corner
+        { id: "hay",     word: "HAY",     translation: "heno",    top: 84, left: 13, width: 15, height: 12 }
+      ]
+    },
+    {
+      id: 13,
+      name: "Space Station",
+      difficulty: "hard",
+      image: "/images/levels/space/space.png",
+      objects: [
+        // Planet: orange planet with rings in the upper-left
+        { id: "planet",     word: "PLANET",     translation: "planeta",   top: 22, left: 25, width: 22, height: 22 },
+        // Rocket: white rocket with red nose at the center
+        { id: "rocket",     word: "ROCKET",     translation: "cohete",    top: 49, left: 50, width: 18, height: 34 },
+        // Astronaut: floating to the right of the rocket
+        { id: "astronaut",  word: "ASTRONAUT",  translation: "astronauta", top: 29, left: 77, width: 14, height: 20 },
+        // Star: bright star in the upper-right corner
+        { id: "star",       word: "STAR",       translation: "estrella",  top: 13, left: 83, width: 9,  height: 9  }
+      ]
+    }
+  ];
+

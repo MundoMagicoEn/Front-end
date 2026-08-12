@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { PlayCircle, BookOpen, Star, Zap, Target } from 'lucide-react';
 
 const FEATURES = [
-  { icon: <BookOpen className="w-5 h-5" />, label: '5 Levels', desc: 'Progressive difficulty' },
+  { icon: <BookOpen className="w-5 h-5" />, label: '13 Levels', desc: 'Progressive difficulty' },
   { icon: <Target className="w-5 h-5" />, label: 'Visual Match', desc: 'Click on the scene' },
   { icon: <Zap className="w-5 h-5" />, label: 'Instant Feedback', desc: 'Learn from mistakes' },
 ];
@@ -79,7 +79,7 @@ export const Home = () => {
 
         {/* Description */}
         <p className="text-center text-slate-300 text-lg leading-relaxed mb-8 font-medium max-w-md mx-auto">
-          Select a word, then find the matching object in the scene. Progress through 5 exciting locations!
+          Select a word, then find the matching object in the scene. Progress through 13 exciting locations!
         </p>
 
         {/* Feature pills */}

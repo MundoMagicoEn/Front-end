@@ -142,7 +142,7 @@ export const Game = () => {
                 You Won! 🏆
               </h3>
               <p className="text-slate-300 text-lg font-semibold mb-2">
-                Amazing! You completed all 5 levels!
+                Amazing! You completed all {totalLevels} levels!
               </p>
               <p className="text-slate-500 text-sm mb-8">
                 You are an English vocabulary champion.
