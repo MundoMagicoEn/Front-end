@@ -117,10 +117,10 @@ export const levels = [
     difficulty: "hard",
     image: "/images/levels/supermarket/supermarket.png",
     objects: [
-      { id: "cart",  word: "CART",  translation: "carrito",  top: 75, left: 35, width: 30, height: 25 },
-      { id: "apple", word: "APPLE", translation: "manzana",  top: 45, left: 5,  width: 15, height: 15 },
-      { id: "bread", word: "BREAD", translation: "pan",      top: 45, left: 78, width: 18, height: 12 },
-      { id: "milk",  word: "MILK",  translation: "leche",    top: 15, left: 45, width: 10, height: 15 }
+      { id: "cart",  word: "CART",  translation: "carrito",  top: 80, left: 88, width: 10, height: 15 },
+      { id: "apple", word: "APPLE", translation: "manzana",  top: 66, left: 35, width: 6,  height: 6 },
+      { id: "bread", word: "BREAD", translation: "pan",      top: 62, left: 18, width: 8,  height: 6 },
+      { id: "milk",  word: "MILK",  translation: "leche",    top: 32, left: 74, width: 3,  height: 5 }
     ]
   },
   {
