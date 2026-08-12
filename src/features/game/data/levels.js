@@ -117,14 +117,14 @@ export const levels = [
     difficulty: "hard",
     image: "/images/levels/supermarket/supermarket.png",
     objects: [
-      // Cart: large cart frame in center-bottom (click the cart body/handle)
-      { id: "cart",  word: "CART",  translation: "carrito",  top: 60, left: 52, width: 18, height: 28 },
-      // Apple: inside cart, left cluster
-      { id: "apple", word: "APPLE", translation: "manzana",  top: 70, left: 43, width: 8,  height: 8  },
-      // Bread: inside cart, center
-      { id: "bread", word: "BREAD", translation: "pan",      top: 72, left: 52, width: 8,  height: 8  },
-      // Milk: inside cart, right upper
-      { id: "milk",  word: "MILK",  translation: "leche",    top: 60, left: 61, width: 7,  height: 10 }
+      // Cart: target the bottom wheels/base of the cart to avoid the basket items
+      { id: "cart",  word: "CART",  translation: "carrito",  top: 85, left: 50, width: 25, height: 10 },
+      // Apple: target a distinct item on the left shelf
+      { id: "apple", word: "APPLE", translation: "manzana",  top: 50, left: 20, width: 10, height: 10 },
+      // Bread: target a distinct item on the right shelf
+      { id: "bread", word: "BREAD", translation: "pan",      top: 50, left: 80, width: 10, height: 10 },
+      // Milk: target a distinct item on an upper shelf
+      { id: "milk",  word: "MILK",  translation: "leche",    top: 30, left: 70, width: 10, height: 10 }
     ]
   },
   {
@@ -149,12 +149,12 @@ export const levels = [
     difficulty: "hard",
     image: "/images/levels/hospital/hospital.png",
     objects: [
-      // Doctor: center figure standing
-      { id: "doctor",       word: "DOCTOR",       translation: "doctor",           top: 48, left: 48, width: 16, height: 38 },
+      // Doctor: target only the doctor's head/face to avoid overlapping with the stethoscope
+      { id: "doctor",       word: "DOCTOR",       translation: "doctor",           top: 35, left: 48, width: 12, height: 12 },
       // Hospital Bed: large bed center-right
       { id: "hospital_bed", word: "BED",           translation: "cama de hospital", top: 72, left: 65, width: 36, height: 26 },
-      // Stethoscope: on doctor's neck (slightly offset from doctor body)
-      { id: "stethoscope",  word: "STETHOSCOPE",   translation: "estetoscopio",     top: 54, left: 46, width: 8,  height: 8  },
+      // Stethoscope: on doctor's chest/neck, now completely separate from the doctor's head hitbox
+      { id: "stethoscope",  word: "STETHOSCOPE",   translation: "estetoscopio",     top: 52, left: 48, width: 10, height: 10 },
       // Ambulance: visible through window upper-left
       { id: "ambulance",    word: "AMBULANCE",     translation: "ambulancia",       top: 40, left: 20, width: 22, height: 16 }
     ]
