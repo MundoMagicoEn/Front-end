@@ -117,14 +117,10 @@ export const levels = [
     difficulty: "hard",
     image: "/images/levels/supermarket/supermarket.png",
     objects: [
-      // Cart: target the bottom wheels/base of the cart to avoid the basket items
-      { id: "cart",  word: "CART",  translation: "carrito",  top: 85, left: 50, width: 25, height: 10 },
-      // Apple: target a distinct item on the left shelf
-      { id: "apple", word: "APPLE", translation: "manzana",  top: 50, left: 20, width: 10, height: 10 },
-      // Bread: target a distinct item on the right shelf
-      { id: "bread", word: "BREAD", translation: "pan",      top: 50, left: 80, width: 10, height: 10 },
-      // Milk: target a distinct item on an upper shelf
-      { id: "milk",  word: "MILK",  translation: "leche",    top: 30, left: 70, width: 10, height: 10 }
+      { id: "cart",  word: "CART",  translation: "carrito",  top: 75, left: 35, width: 30, height: 25 },
+      { id: "apple", word: "APPLE", translation: "manzana",  top: 45, left: 5,  width: 15, height: 15 },
+      { id: "bread", word: "BREAD", translation: "pan",      top: 45, left: 78, width: 18, height: 12 },
+      { id: "milk",  word: "MILK",  translation: "leche",    top: 15, left: 45, width: 10, height: 15 }
     ]
   },
   {
@@ -161,50 +157,14 @@ export const levels = [
     },
     {
       id: 11,
-      name: "Office",
-      difficulty: "medium",
-      image: "/images/levels/office/office.png",
-      objects: [
-        // Computer: monitor on the desk center
-        { id: "computer", word: "COMPUTER", translation: "computadora", top: 60, left: 47, width: 22, height: 14 },
-        // Printer: on the small side table at the right
-        { id: "printer",  word: "PRINTER",  translation: "impresora",   top: 60, left: 78, width: 14, height: 12 },
-        // Calendar: red-banded calendar on the upper-right wall
-        { id: "calendar", word: "CALENDAR", translation: "calendario",  top: 20, left: 78, width: 12, height: 10 },
-        // Plant: potted plant on the floor left of the desk
-        { id: "plant",    word: "PLANT",    translation: "planta",      top: 76, left: 15, width: 12, height: 16 }
-      ]
-    },
-    {
-      id: 12,
-      name: "Farm",
+      name: "Restaurant",
       difficulty: "hard",
-      image: "/images/levels/farm/farm.png",
+      image: "/images/levels/restaurant/restaurant.png",
       objects: [
-        // Barn: big red barn in the center-right field
-        { id: "barn",    word: "BARN",    translation: "granero", top: 39, left: 62, width: 30, height: 34 },
-        // Tractor: blue tractor in the lower center-left
-        { id: "tractor", word: "TRACTOR", translation: "tractor", top: 81, left: 34, width: 26, height: 18 },
-        // Cow: white cow on the right side of the field
-        { id: "cow",     word: "COW",     translation: "vaca",    top: 74, left: 78, width: 24, height: 15 },
-        // Hay: hay bale in the lower-left corner
-        { id: "hay",     word: "HAY",     translation: "heno",    top: 84, left: 13, width: 15, height: 12 }
-      ]
-    },
-    {
-      id: 13,
-      name: "Space Station",
-      difficulty: "hard",
-      image: "/images/levels/space/space.png",
-      objects: [
-        // Planet: orange planet with rings in the upper-left
-        { id: "planet",     word: "PLANET",     translation: "planeta",   top: 22, left: 25, width: 22, height: 22 },
-        // Rocket: white rocket with red nose at the center
-        { id: "rocket",     word: "ROCKET",     translation: "cohete",    top: 49, left: 50, width: 18, height: 34 },
-        // Astronaut: floating to the right of the rocket
-        { id: "astronaut",  word: "ASTRONAUT",  translation: "astronauta", top: 29, left: 77, width: 14, height: 20 },
-        // Star: bright star in the upper-right corner
-        { id: "star",       word: "STAR",       translation: "estrella",  top: 13, left: 83, width: 9,  height: 9  }
+        { id: "menu",   word: "MENU",   translation: "menú",     top: 70, left: 30, width: 40, height: 25 },
+        { id: "waiter", word: "WAITER", translation: "mesero",   top: 30, left: 45, width: 15, height: 35 },
+        { id: "fork",   word: "FORK",   translation: "tenedor",  top: 72, left: 20, width: 8,  height: 18 },
+        { id: "knife",  word: "KNIFE",  translation: "cuchillo", top: 72, left: 70, width: 8,  height: 18 }
       ]
     }
   ];
