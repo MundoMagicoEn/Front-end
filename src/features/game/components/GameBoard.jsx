@@ -1,4 +1,4 @@
-import { CheckCircle2, MapPin } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import clsx from 'clsx';
 
 export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect }) => {
@@ -9,14 +9,15 @@ export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect })
       className="relative w-full rounded-2xl overflow-hidden"
       style={{
         boxShadow: '0 25px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08)',
+        /* Aspect ratio 1:1 ensures top/left/width/height percentages all reference the same dimension */
+        aspectRatio: '1 / 1',
       }}
     >
-      {/* Image */}
+      {/* Image fills the square container */}
       <img
         src={level.image}
         alt={level.name}
-        className="w-full h-auto object-cover block"
-        style={{ display: 'block', minHeight: '300px', objectFit: 'cover' }}
+        className="absolute inset-0 w-full h-full object-cover block"
       />
 
       {/* Top overlay gradient */}
@@ -63,6 +64,8 @@ export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect })
       {/* Hotspots */}
       {level.objects.map((obj) => {
         const isFound = foundObjects.includes(obj.id);
+        const w = obj.width || 12;
+        const h = obj.height || 12;
 
         return (
           <button
@@ -71,10 +74,16 @@ export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect })
             disabled={isFound}
             title={obj.translation}
             className={clsx(
-              'absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300',
-              isFound ? 'cursor-default' : 'cursor-pointer group'
+              'absolute transition-all duration-300 flex items-center justify-center',
+              isFound ? 'cursor-default' : 'cursor-pointer'
             )}
-            style={{ top: `${obj.top}%`, left: `${obj.left}%` }}
+            style={{
+              /* top/left are center of object; shift by half width/height to align */
+              top: `${obj.top - h / 2}%`,
+              left: `${obj.left - w / 2}%`,
+              width: `${w}%`,
+              height: `${h}%`,
+            }}
           >
             {isFound ? (
               /* Found state */
@@ -97,27 +106,8 @@ export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect })
                 />
               </div>
             ) : (
-              /* Undiscovered state */
-              <div className="relative w-10 h-10 flex items-center justify-center">
-                {/* Pulsing ring */}
-                <div className="hotspot-ring" />
-                <div
-                  className="hotspot-ring"
-                  style={{ animationDelay: '0.6s' }}
-                />
-                {/* Core */}
-                <div
-                  className="relative z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 group-hover:scale-125"
-                  style={{
-                    background: 'rgba(255,255,255,0.2)',
-                    backdropFilter: 'blur(4px)',
-                    border: '2px solid rgba(255,255,255,0.6)',
-                    boxShadow: '0 0 12px rgba(255,255,255,0.3)',
-                  }}
-                >
-                  <MapPin className="w-4 h-4 text-white drop-shadow-md group-hover:scale-110 transition-transform" />
-                </div>
-              </div>
+              /* Undiscovered — transparent, full hitbox coverage */
+              <div className="w-full h-full" />
             )}
           </button>
         );

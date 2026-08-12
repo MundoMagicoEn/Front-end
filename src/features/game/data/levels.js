@@ -5,10 +5,14 @@ export const levels = [
     difficulty: "easy",
     image: "/images/levels/bedroom/bedroom.png",
     objects: [
-      { id: "bed", word: "BED", translation: "cama", top: 60, left: 45 },
-      { id: "chair", word: "CHAIR", translation: "silla", top: 65, left: 80 },
-      { id: "window", word: "WINDOW", translation: "ventana", top: 30, left: 20 },
-      { id: "lamp", word: "LAMP", translation: "lámpara", top: 43, left: 46 }
+      // Bed: large piece in center-bottom
+      { id: "bed",    word: "BED",    translation: "cama",     top: 68, left: 50, width: 45, height: 22 },
+      // Chair: right side
+      { id: "chair",  word: "CHAIR",  translation: "silla",    top: 72, left: 82, width: 14, height: 22 },
+      // Window: upper-left area
+      { id: "window", word: "WINDOW", translation: "ventana",  top: 28, left: 20, width: 18, height: 24 },
+      // Lamp: center, on the nightstand
+      { id: "lamp",   word: "LAMP",   translation: "lámpara",  top: 44, left: 47, width: 8,  height: 16 }
     ]
   },
   {
@@ -17,10 +21,14 @@ export const levels = [
     difficulty: "easy",
     image: "/images/levels/kitchen/kitchen.png",
     objects: [
-      { id: "table", word: "TABLE", translation: "mesa", top: 65, left: 50 },
-      { id: "chair", word: "CHAIR", translation: "silla", top: 70, left: 75 },
-      { id: "plate", word: "PLATE", translation: "plato", top: 57, left: 47 },
-      { id: "cup", word: "CUP", translation: "taza", top: 55, left: 62 }
+      // Table: large surface center-bottom
+      { id: "table", word: "TABLE", translation: "mesa",   top: 72, left: 50, width: 40, height: 18 },
+      // Oven: right side, lower area
+      { id: "oven",  word: "OVEN",  translation: "horno",  top: 68, left: 78, width: 18, height: 26 },
+      // Plate: on the table center-left
+      { id: "plate", word: "PLATE", translation: "plato",  top: 61, left: 44, width: 10, height: 8  },
+      // Cup: on the table, right of plate
+      { id: "cup",   word: "CUP",   translation: "taza",   top: 58, left: 60, width: 8,  height: 9  }
     ]
   },
   {
@@ -29,10 +37,14 @@ export const levels = [
     difficulty: "medium",
     image: "/images/levels/classroom/classroom.png",
     objects: [
-      { id: "desk", word: "DESK", translation: "escritorio", top: 65, left: 52 },
-      { id: "chair", word: "CHAIR", translation: "silla", top: 70, left: 75 },
-      { id: "book", word: "BOOK", translation: "libro", top: 55, left: 55 },
-      { id: "board", word: "BOARD", translation: "pizarrón", top: 30, left: 78 }
+      // Desk: large surface center-bottom
+      { id: "desk",  word: "DESK",  translation: "escritorio", top: 70, left: 52, width: 38, height: 20 },
+      // Clock: upper center wall
+      { id: "clock", word: "CLOCK", translation: "reloj",      top: 14, left: 50, width: 12, height: 13 },
+      // Book: on the desk
+      { id: "book",  word: "BOOK",  translation: "libro",      top: 60, left: 57, width: 10, height: 11 },
+      // Board: upper-right wall
+      { id: "board", word: "BOARD", translation: "pizarrón",   top: 30, left: 79, width: 28, height: 22 }
     ]
   },
   {
@@ -41,22 +53,159 @@ export const levels = [
     difficulty: "medium",
     image: "/images/levels/street/street.png",
     objects: [
-      { id: "car", word: "CAR", translation: "auto", top: 80, left: 50 },
-      { id: "bus", word: "BUS", translation: "autobús", top: 60, left: 22 },
-      { id: "tree", word: "TREE", translation: "árbol", top: 40, left: 78 },
-      { id: "road", word: "ROAD", translation: "calle", top: 90, left: 50 }
+      // Car: bottom center on the road
+      { id: "car",  word: "CAR",  translation: "auto",    top: 80, left: 50, width: 30, height: 16 },
+      // Bus: left side, mid-height
+      { id: "bus",  word: "BUS",  translation: "autobús", top: 58, left: 22, width: 32, height: 26 },
+      // Tree: right side, upper-mid
+      { id: "tree", word: "TREE", translation: "árbol",   top: 42, left: 80, width: 16, height: 38 },
+      // Road: very bottom strip
+      { id: "road", word: "ROAD", translation: "calle",   top: 92, left: 50, width: 90, height: 14 }
     ]
   },
   {
     id: 5,
     name: "Park",
-    difficulty: "hard",
+    difficulty: "medium",
     image: "/images/levels/park/park.png",
     objects: [
-      { id: "tree", word: "TREE", translation: "árbol", top: 35, left: 25 },
-      { id: "bench", word: "BENCH", translation: "banco", top: 70, left: 28 },
-      { id: "ball", word: "BALL", translation: "pelota", top: 72, left: 55 },
-      { id: "bicycle", word: "BICYCLE", translation: "bicicleta", top: 80, left: 78 }
+      // Sun: upper-right corner
+      { id: "sun",     word: "SUN",     translation: "sol",        top: 16, left: 79, width: 14, height: 14 },
+      // Ball: center-left on the grass
+      { id: "ball",    word: "BALL",    translation: "pelota",     top: 62, left: 42, width: 8,  height: 8  },
+      // Bench: right side, lower
+      { id: "bench",   word: "BENCH",   translation: "banco",      top: 74, left: 68, width: 26, height: 16 },
+      // Bicycle: lower-left, separate zone from bench
+      { id: "bicycle", word: "BICYCLE", translation: "bicicleta",  top: 83, left: 18, width: 22, height: 22 }
     ]
-  }
-];
+  },
+  {
+    id: 6,
+    name: "Bathroom",
+    difficulty: "hard",
+    image: "/images/levels/bathroom/bathroom.png",
+    objects: [
+      // Mirror: upper-center above sink
+      { id: "mirror",     word: "MIRROR",     translation: "espejo",              top: 30, left: 50, width: 22, height: 22 },
+      // Towel: right-side towel bar
+      { id: "towel",      word: "TOWEL",      translation: "toalla",              top: 50, left: 83, width: 12, height: 28 },
+      // Soap: left of faucet on counter
+      { id: "soap",       word: "SOAP",       translation: "jabón",               top: 58, left: 38, width: 9,  height: 8  },
+      // Toothbrush: cup right of faucet
+      { id: "toothbrush", word: "TOOTHBRUSH", translation: "cepillo de dientes",  top: 58, left: 60, width: 7,  height: 12 }
+    ]
+  },
+  {
+    id: 7,
+    name: "Living Room",
+    difficulty: "hard",
+    image: "/images/levels/living_room/living_room.png",
+    objects: [
+      // Sofa: center-left, lower
+      { id: "sofa",       word: "SOFA",       translation: "sofá",      top: 66, left: 35, width: 38, height: 22 },
+      // Television: right side on the stand
+      { id: "television", word: "TELEVISION", translation: "televisor", top: 52, left: 82, width: 22, height: 18 },
+      // Rug: circular rug on the floor center
+      { id: "rug",        word: "RUG",        translation: "alfombra",  top: 84, left: 50, width: 36, height: 16 },
+      // Painting: upper-left wall
+      { id: "painting",   word: "PAINTING",   translation: "cuadro",    top: 28, left: 47, width: 22, height: 18 }
+    ]
+  },
+  {
+    id: 8,
+    name: "Supermarket",
+    difficulty: "hard",
+    image: "/images/levels/supermarket/supermarket.png",
+    objects: [
+      // Cart: target the bottom wheels/base of the cart to avoid the basket items
+      { id: "cart",  word: "CART",  translation: "carrito",  top: 85, left: 50, width: 25, height: 10 },
+      // Apple: target a distinct item on the left shelf
+      { id: "apple", word: "APPLE", translation: "manzana",  top: 50, left: 20, width: 10, height: 10 },
+      // Bread: target a distinct item on the right shelf
+      { id: "bread", word: "BREAD", translation: "pan",      top: 50, left: 80, width: 10, height: 10 },
+      // Milk: target a distinct item on an upper shelf
+      { id: "milk",  word: "MILK",  translation: "leche",    top: 30, left: 70, width: 10, height: 10 }
+    ]
+  },
+  {
+    id: 9,
+    name: "Beach",
+    difficulty: "hard",
+    image: "/images/levels/beach/beach.png",
+    objects: [
+      // Ocean: the turquoise water in the upper-center
+      { id: "ocean",    word: "OCEAN",    translation: "océano",   top: 38, left: 55, width: 40, height: 18 },
+      // Umbrella: right-center large striped umbrella
+      { id: "umbrella", word: "UMBRELLA", translation: "sombrilla", top: 58, left: 68, width: 24, height: 28 },
+      // Shell: lower-left pink shell
+      { id: "shell",    word: "SHELL",    translation: "concha",    top: 83, left: 16, width: 10, height: 10 },
+      // Sand: lower strip far from the shell/umbrella areas
+      { id: "sand",     word: "SAND",     translation: "arena",     top: 92, left: 50, width: 50, height: 12 }
+    ]
+  },
+    {
+      id: 10,
+      name: "Hospital",
+      difficulty: "hard",
+      image: "/images/levels/hospital/hospital.png",
+      objects: [
+        // Doctor: target only the doctor's head/face to avoid overlapping with the stethoscope
+        { id: "doctor",       word: "DOCTOR",       translation: "doctor",           top: 35, left: 48, width: 12, height: 12 },
+        // Hospital Bed: large bed center-right
+        { id: "hospital_bed", word: "BED",           translation: "cama de hospital", top: 72, left: 65, width: 36, height: 26 },
+        // Stethoscope: on doctor's chest/neck, now completely separate from the doctor's head hitbox
+        { id: "stethoscope",  word: "STETHOSCOPE",   translation: "estetoscopio",     top: 52, left: 48, width: 10, height: 10 },
+        // Ambulance: visible through window upper-left
+        { id: "ambulance",    word: "AMBULANCE",     translation: "ambulancia",       top: 40, left: 20, width: 22, height: 16 }
+      ]
+    },
+    {
+      id: 11,
+      name: "Office",
+      difficulty: "medium",
+      image: "/images/levels/office/office.png",
+      objects: [
+        // Computer: monitor on the desk center
+        { id: "computer", word: "COMPUTER", translation: "computadora", top: 60, left: 47, width: 22, height: 14 },
+        // Printer: on the small side table at the right
+        { id: "printer",  word: "PRINTER",  translation: "impresora",   top: 60, left: 78, width: 14, height: 12 },
+        // Calendar: red-banded calendar on the upper-right wall
+        { id: "calendar", word: "CALENDAR", translation: "calendario",  top: 20, left: 78, width: 12, height: 10 },
+        // Plant: potted plant on the floor left of the desk
+        { id: "plant",    word: "PLANT",    translation: "planta",      top: 76, left: 15, width: 12, height: 16 }
+      ]
+    },
+    {
+      id: 12,
+      name: "Farm",
+      difficulty: "hard",
+      image: "/images/levels/farm/farm.png",
+      objects: [
+        // Barn: big red barn in the center-right field
+        { id: "barn",    word: "BARN",    translation: "granero", top: 39, left: 62, width: 30, height: 34 },
+        // Tractor: blue tractor in the lower center-left
+        { id: "tractor", word: "TRACTOR", translation: "tractor", top: 81, left: 34, width: 26, height: 18 },
+        // Cow: white cow on the right side of the field
+        { id: "cow",     word: "COW",     translation: "vaca",    top: 74, left: 78, width: 24, height: 15 },
+        // Hay: hay bale in the lower-left corner
+        { id: "hay",     word: "HAY",     translation: "heno",    top: 84, left: 13, width: 15, height: 12 }
+      ]
+    },
+    {
+      id: 13,
+      name: "Space Station",
+      difficulty: "hard",
+      image: "/images/levels/space/space.png",
+      objects: [
+        // Planet: orange planet with rings in the upper-left
+        { id: "planet",     word: "PLANET",     translation: "planeta",   top: 22, left: 25, width: 22, height: 22 },
+        // Rocket: white rocket with red nose at the center
+        { id: "rocket",     word: "ROCKET",     translation: "cohete",    top: 49, left: 50, width: 18, height: 34 },
+        // Astronaut: floating to the right of the rocket
+        { id: "astronaut",  word: "ASTRONAUT",  translation: "astronauta", top: 29, left: 77, width: 14, height: 20 },
+        // Star: bright star in the upper-right corner
+        { id: "star",       word: "STAR",       translation: "estrella",  top: 13, left: 83, width: 9,  height: 9  }
+      ]
+    }
+  ];
+

@@ -4,7 +4,9 @@ import { GameBoard } from '../features/game/components/GameBoard';
 import { WordList } from '../features/game/components/WordList';
 import { GameStatus } from '../features/game/components/GameStatus';
 import { GameFeedback } from '../features/game/components/GameFeedback';
-import { ArrowRight, RotateCcw, Home as HomeIcon, Trophy, Star } from 'lucide-react';
+import { GameTimer } from '../features/game/components/GameTimer';
+import { InstructionsModal } from '../features/game/components/InstructionsModal';
+import { ArrowRight, RotateCcw, Home as HomeIcon, Trophy, Star, Frown } from 'lucide-react';
 
 const OVERLAY_STYLES = {
   position: 'absolute',
@@ -34,6 +36,10 @@ export const Game = () => {
     feedback,
     isLevelComplete,
     isGameComplete,
+    isGameOver,
+    timeLeft,
+    isPlaying,
+    startGame,
     handleWordSelect,
     handleObjectSelect,
     nextLevel,
@@ -57,7 +63,10 @@ export const Game = () => {
 
       <div className="flex flex-col md:flex-row gap-5 items-start justify-center flex-grow">
         {/* Left: Scene */}
-        <div className="flex-grow w-full md:w-auto relative">
+        <div className="flex-grow w-full md:w-auto relative flex flex-col items-center">
+          
+          <GameTimer timeLeft={timeLeft} maxTime={60} />
+
           <GameBoard
             level={currentLevel}
             foundObjects={foundObjects}
@@ -133,7 +142,7 @@ export const Game = () => {
                 You Won! 🏆
               </h3>
               <p className="text-slate-300 text-lg font-semibold mb-2">
-                Amazing! You completed all 5 levels!
+                Amazing! You completed all {totalLevels} levels!
               </p>
               <p className="text-slate-500 text-sm mb-8">
                 You are an English vocabulary champion.
@@ -164,6 +173,60 @@ export const Game = () => {
               </div>
             </div>
           )}
+
+          {/* Game Over Overlay */}
+          {isGameOver && (
+            <div style={OVERLAY_STYLES}>
+              <div
+                className="w-20 h-20 rounded-full flex items-center justify-center mb-5 animate-pulse"
+                style={{
+                  background: 'linear-gradient(135deg, #ef4444, #b91c1c)',
+                  boxShadow: '0 0 40px rgba(239,68,68,0.6)',
+                }}
+              >
+                <Frown className="w-10 h-10 text-white" />
+              </div>
+
+              <h3
+                className="text-5xl font-black text-white mb-2"
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  background: 'linear-gradient(135deg, #fca5a5, #ef4444)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                Juego Terminado
+              </h3>
+              <p className="text-slate-300 text-lg font-semibold mb-8">
+                {errors >= 3 ? 'Has perdido todas tus vidas.' : '¡Se agotó el tiempo!'}
+              </p>
+
+              <div className="flex gap-3 flex-wrap justify-center">
+                <button
+                  onClick={restartGame}
+                  className="inline-flex items-center gap-2 text-white font-bold text-base py-3 px-8 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95"
+                  style={{
+                    background: 'linear-gradient(135deg, #6366f1, #a855f7)',
+                    boxShadow: '0 0 20px rgba(99,102,241,0.4)',
+                  }}
+                >
+                  <RotateCcw className="w-5 h-5" /> Reintentar
+                </button>
+                <button
+                  onClick={() => navigate('/')}
+                  className="inline-flex items-center gap-2 font-bold text-base py-3 px-8 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95"
+                  style={{
+                    background: 'rgba(255,255,255,0.08)',
+                    border: '1px solid rgba(255,255,255,0.15)',
+                    color: '#e2e8f0',
+                  }}
+                >
+                  <HomeIcon className="w-5 h-5" /> Salir
+                </button>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Right: Words */}
@@ -176,6 +239,11 @@ export const Game = () => {
       </div>
 
       <GameFeedback feedback={feedback} />
+
+      {/* Instructions Modal at the very beginning */}
+      {!isPlaying && currentLevelIndex === 0 && (
+        <InstructionsModal onStart={startGame} />
+      )}
     </div>
   );
 };
