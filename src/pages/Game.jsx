@@ -4,6 +4,8 @@ import { GameBoard } from '../features/game/components/GameBoard';
 import { WordList } from '../features/game/components/WordList';
 import { GameStatus } from '../features/game/components/GameStatus';
 import { GameFeedback } from '../features/game/components/GameFeedback';
+import { GameTimer } from '../features/game/components/GameTimer';
+import { InstructionsModal } from '../features/game/components/InstructionsModal';
 import { ArrowRight, RotateCcw, Home as HomeIcon, Trophy, Star } from 'lucide-react';
 
 const OVERLAY_STYLES = {
@@ -34,6 +36,9 @@ export const Game = () => {
     feedback,
     isLevelComplete,
     isGameComplete,
+    timeLeft,
+    isPlaying,
+    startGame,
     handleWordSelect,
     handleObjectSelect,
     nextLevel,
@@ -57,7 +62,10 @@ export const Game = () => {
 
       <div className="flex flex-col md:flex-row gap-5 items-start justify-center flex-grow">
         {/* Left: Scene */}
-        <div className="flex-grow w-full md:w-auto relative">
+        <div className="flex-grow w-full md:w-auto relative flex flex-col items-center">
+          
+          <GameTimer timeLeft={timeLeft} />
+
           <GameBoard
             level={currentLevel}
             foundObjects={foundObjects}
@@ -176,6 +184,11 @@ export const Game = () => {
       </div>
 
       <GameFeedback feedback={feedback} />
+
+      {/* Instructions Modal at the very beginning */}
+      {!isPlaying && currentLevelIndex === 0 && (
+        <InstructionsModal onStart={startGame} />
+      )}
     </div>
   );
 };

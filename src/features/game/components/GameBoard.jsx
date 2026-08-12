@@ -1,4 +1,4 @@
-import { CheckCircle2, MapPin } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import clsx from 'clsx';
 
 export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect }) => {
@@ -97,26 +97,12 @@ export const GameBoard = ({ level, foundObjects, selectedWord, onObjectSelect })
                 />
               </div>
             ) : (
-              /* Undiscovered state */
-              <div className="relative w-10 h-10 flex items-center justify-center">
-                {/* Pulsing ring */}
-                <div className="hotspot-ring" />
+              /* Undiscovered state (Invisible to increase difficulty) */
+              <div className="relative w-12 h-12 flex items-center justify-center opacity-0 hover:opacity-10 transition-opacity duration-300">
                 <div
-                  className="hotspot-ring"
-                  style={{ animationDelay: '0.6s' }}
+                  className="w-full h-full rounded-full"
+                  style={{ background: 'white' }}
                 />
-                {/* Core */}
-                <div
-                  className="relative z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 group-hover:scale-125"
-                  style={{
-                    background: 'rgba(255,255,255,0.2)',
-                    backdropFilter: 'blur(4px)',
-                    border: '2px solid rgba(255,255,255,0.6)',
-                    boxShadow: '0 0 12px rgba(255,255,255,0.3)',
-                  }}
-                >
-                  <MapPin className="w-4 h-4 text-white drop-shadow-md group-hover:scale-110 transition-transform" />
-                </div>
               </div>
             )}
           </button>

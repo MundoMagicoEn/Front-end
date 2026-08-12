@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { levels } from '../data/levels';
 import { saveProgress, loadProgress, clearProgress } from '../utils/storage';
 
@@ -20,6 +20,10 @@ export const useGameState = () => {
   
   const [selectedWord, setSelectedWord] = useState(null);
   const [feedback, setFeedback] = useState({ message: '', type: '' });
+  
+  // Timer and Play state
+  const [timeLeft, setTimeLeft] = useState(20);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const currentLevel = levels[currentLevelIndex];
   
@@ -35,6 +39,47 @@ export const useGameState = () => {
       foundObjects,
     });
   }, [currentLevelIndex, errors, foundObjects]);
+
+  const restartLevel = useCallback(() => {
+    setErrors(0);
+    setFoundObjects([]);
+    setSelectedWord(null);
+    setTimeLeft(20);
+  }, []);
+
+  // Timer logic
+  useEffect(() => {
+    if (!isPlaying || isLevelComplete || isGameComplete) return;
+    
+    if (timeLeft <= 0) {
+      // Time's up penalty
+      const newErrors = errors + 1;
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setErrors(newErrors);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setTimeLeft(20); // Reset timer
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setFeedback({ message: '¡Se acabó el tiempo!', type: 'error' });
+      
+      if (newErrors >= 3) {
+        setTimeout(() => {
+          setFeedback({ message: 'Nivel Reiniciado', type: 'error' });
+          restartLevel();
+        }, 1500);
+      }
+      return;
+    }
+
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [timeLeft, isPlaying, isLevelComplete, isGameComplete, errors, restartLevel]);
+
+  const startGame = () => {
+    setIsPlaying(true);
+  };
 
   const handleWordSelect = (wordId) => {
     if (isLevelComplete || isGameComplete) return;
@@ -86,13 +131,8 @@ export const useGameState = () => {
       setFoundObjects([]);
       setSelectedWord(null);
       setFeedback({ message: '', type: '' });
+      setTimeLeft(20); // Reset timer for next level
     }
-  };
-
-  const restartLevel = () => {
-    setErrors(0);
-    setFoundObjects([]);
-    setSelectedWord(null);
   };
 
   const restartGame = () => {
@@ -102,6 +142,8 @@ export const useGameState = () => {
     setFoundObjects([]);
     setSelectedWord(null);
     setFeedback({ message: '', type: '' });
+    setTimeLeft(20);
+    setIsPlaying(false); // Show modal again when restarting
   };
 
   return {
@@ -114,6 +156,9 @@ export const useGameState = () => {
     feedback,
     isLevelComplete,
     isGameComplete,
+    timeLeft,
+    isPlaying,
+    startGame,
     handleWordSelect,
     handleObjectSelect,
     nextLevel,
