@@ -3,7 +3,7 @@ import { PlayCircle, BookOpen, Star, Zap, Target } from 'lucide-react';
 import { useSound } from '../features/game/hooks/useSound';
 
 const FEATURES = [
-  { icon: <BookOpen className="w-5 h-5" />, label: '13 Levels', desc: 'Progressive difficulty' },
+  { icon: <BookOpen className="w-5 h-5" />, label: 'Many levels', desc: 'Progressive difficulty' },
   { icon: <Target className="w-5 h-5" />, label: 'Visual Match', desc: 'Click on the scene' },
   { icon: <Zap className="w-5 h-5" />, label: 'Instant Feedback', desc: 'Learn from mistakes' },
 ];
