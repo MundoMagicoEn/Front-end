@@ -81,7 +81,7 @@ export const Home = () => {
 
         {/* Description */}
         <p className="text-center text-slate-300 text-lg leading-relaxed mb-8 font-medium max-w-md mx-auto">
-          Select a word, then find the matching object in the scene. Progress through 13 exciting locations!
+          Select a word, then find the matching object in the scene. Progress through exciting locations!
         </p>
 
         {/* Feature pills */}
