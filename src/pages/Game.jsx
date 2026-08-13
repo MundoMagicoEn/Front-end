@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGameState } from '../features/game/hooks/useGameState';
 import { useSound } from '../features/game/hooks/useSound';
@@ -28,6 +29,7 @@ const OVERLAY_STYLES = {
 export const Game = () => {
   const navigate = useNavigate();
   const { playButton } = useSound();
+  const [showNextLevelBtn, setShowNextLevelBtn] = useState(false);
   const {
     currentLevel,
     currentLevelIndex,
@@ -49,6 +51,17 @@ export const Game = () => {
   } = useGameState();
 
   if (!currentLevel) return null;
+
+  useEffect(() => {
+    if (isLevelComplete && !isGameComplete) {
+      const timer = setTimeout(() => {
+        setShowNextLevelBtn(true);
+      }, 2000);
+      return () => clearTimeout(timer);
+    } else {
+      setShowNextLevelBtn(false);
+    }
+  }, [isLevelComplete, isGameComplete]);
 
   const progress = (foundObjects.length / currentLevel.objects.length) * 100;
 
@@ -106,17 +119,19 @@ export const Game = () => {
                 Great job! You found all the objects.
               </p>
 
-              <button
-                onClick={() => { playButton(); nextLevel(); }}
-                className="inline-flex items-center gap-3 text-white font-black text-xl py-4 px-10 rounded-2xl transition-all duration-200 hover:scale-105 active:scale-95"
-                style={{
-                  background: 'linear-gradient(135deg, #6366f1, #a855f7)',
-                  boxShadow: '0 0 30px rgba(99,102,241,0.5), 0 10px 40px rgba(0,0,0,0.3)',
-                  fontFamily: "'Poppins', sans-serif",
-                }}
-              >
-                Next Level <ArrowRight className="w-6 h-6" />
-              </button>
+              {showNextLevelBtn && (
+                <button
+                  onClick={() => { playButton(); nextLevel(); }}
+                  className="inline-flex items-center gap-3 text-white font-black text-xl py-4 px-10 rounded-2xl transition-all duration-200 hover:scale-105 active:scale-95"
+                  style={{
+                    background: 'linear-gradient(135deg, #6366f1, #a855f7)',
+                    boxShadow: '0 0 30px rgba(99,102,241,0.5), 0 10px 40px rgba(0,0,0,0.3)',
+                    fontFamily: "'Poppins', sans-serif",
+                  }}
+                >
+                  Next Level <ArrowRight className="w-6 h-6" />
+                </button>
+              )}
             </div>
           )}
 

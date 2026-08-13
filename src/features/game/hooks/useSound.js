@@ -1,7 +1,7 @@
 import { useRef, useCallback } from 'react';
 
 // Import sound assets
-import soundLevelComplete from '../../../assets/audio/aciertos.mp3';
+import soundLevelComplete from '../../../assets/audio/siguiente-nivel.mp3';
 import soundSelectCorrect from '../../../assets/audio/seleccion-correcta.mp3';
 import soundError    from '../../../assets/audio/equivocado.mp3';
 import soundGameOver from '../../../assets/audio/juego-finalizado-perdido.mp3';
