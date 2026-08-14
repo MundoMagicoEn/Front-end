@@ -65,7 +65,7 @@ export const useGameState = () => {
     }
 
     const timer = setInterval(() => {
-      // setTimeLeft((prev) => prev - 1);
+      setTimeLeft((prev) => prev - 1);
     }, 1000);
 
     return () => clearInterval(timer);
