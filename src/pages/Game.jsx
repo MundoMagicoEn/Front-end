@@ -79,7 +79,7 @@ export const Game = () => {
       <div className="flex flex-col md:flex-row gap-5 items-start justify-center flex-grow w-full max-w-6xl mx-auto">
         {/* Left: Scene */}
         <div className="flex-grow w-full md:w-auto relative flex flex-col items-center justify-center max-w-[70vh] mx-auto md:max-w-[60vh] xl:max-w-[70vh]">
-          
+
           <GameTimer timeLeft={timeLeft} maxTime={60} />
 
 

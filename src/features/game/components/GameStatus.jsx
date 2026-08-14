@@ -13,7 +13,7 @@ export const GameStatus = ({ levelName, levelIndex, totalLevels, errors, progres
 
   return (
     <div
-      className="w-full mb-5 rounded-2xl p-4"
+      className="w-full mb-5 rounded-2xl p-1"
       style={{
         background: 'rgba(255,255,255,0.05)',
         backdropFilter: 'blur(20px)',
@@ -64,11 +64,10 @@ export const GameStatus = ({ levelName, levelIndex, totalLevels, errors, progres
               {[...Array(maxErrors)].map((_, i) => (
                 <Heart
                   key={i}
-                  className={`w-7 h-7 transition-all duration-500 ${
-                    i < remainingHearts
-                      ? 'fill-rose-500 text-rose-500 drop-shadow-[0_0_6px_rgba(244,63,94,0.7)]'
-                      : 'fill-slate-700 text-slate-600'
-                  }`}
+                  className={`w-7 h-7 transition-all duration-500 ${i < remainingHearts
+                    ? 'fill-rose-500 text-rose-500 drop-shadow-[0_0_6px_rgba(244,63,94,0.7)]'
+                    : 'fill-slate-700 text-slate-600'
+                    }`}
                   style={i < remainingHearts ? { animation: 'heartBeat 2s ease-in-out infinite', animationDelay: `${i * 0.2}s` } : {}}
                 />
               ))}
@@ -79,7 +78,7 @@ export const GameStatus = ({ levelName, levelIndex, totalLevels, errors, progres
           <div className="w-px h-10 bg-white/10 hidden sm:block" />
 
           {/* Progress */}
-          <div className="flex flex-col gap-1.5 min-w-[140px]">
+          <div className="flex flex-col gap-1.5 min-w-[140px] pr-3">
             <div className="flex justify-between items-center">
               <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Progress</span>
               <span className="text-xs font-black text-indigo-400">{Math.round(progress)}%</span>
