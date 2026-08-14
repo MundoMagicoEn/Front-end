@@ -10,27 +10,27 @@ export const useGameState = () => {
     const saved = loadProgress();
     return saved?.currentLevelIndex ?? 0;
   });
-  
+
   const [errors, setErrors] = useState(() => {
     const saved = loadProgress();
     return saved?.errors ?? 0;
   });
-  
+
   const [foundObjects, setFoundObjects] = useState(() => {
     const saved = loadProgress();
     return saved?.foundObjects ?? [];
   });
-  
+
   const [selectedWord, setSelectedWord] = useState(null);
   const [feedback, setFeedback] = useState({ message: '', type: '' });
-  
+
   // Timer and Play state
   const [timeLeft, setTimeLeft] = useState(60);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
 
   const currentLevel = levels[currentLevelIndex];
-  
+
   // Derived state to avoid effect
   const isLevelComplete = currentLevel && foundObjects.length === currentLevel.objects.length;
   const isGameComplete = isLevelComplete && currentLevelIndex === levels.length - 1;
@@ -54,7 +54,7 @@ export const useGameState = () => {
   // Timer logic
   useEffect(() => {
     if (!isPlaying || isLevelComplete || isGameComplete || isGameOver) return;
-    
+
     if (timeLeft <= 0) {
       // Time's up: Game Over
       playGameOver();
@@ -88,14 +88,14 @@ export const useGameState = () => {
       setFeedback({ message: 'Select a word first!', type: 'info' });
       return;
     }
-    
+
     if (foundObjects.includes(objectId)) return;
 
     if (selectedWord === objectId) {
       // Correct!
       const nextFound = [...foundObjects, objectId];
       setFoundObjects(nextFound);
-      
+
       if (nextFound.length === currentLevel.objects.length) {
         // Last object of the LAST level → game complete (You Win)
         if (currentLevelIndex === levels.length - 1) {
@@ -103,7 +103,7 @@ export const useGameState = () => {
         } else {
           playLevelComplete();
         }
-        setFeedback({ message: 'Level Complete!', type: 'success' });
+        setFeedback({ message: '', type: '' });
         setSelectedWord(null);
       } else {
         playSelectCorrect();
@@ -116,7 +116,7 @@ export const useGameState = () => {
       const newErrors = errors + 1;
       setErrors(newErrors);
       setFeedback({ message: '¡Inténtalo de nuevo!', type: 'error' });
-      
+
       if (newErrors >= 3) {
         playGameOver();
         clearProgress();

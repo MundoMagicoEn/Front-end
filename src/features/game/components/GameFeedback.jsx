@@ -46,19 +46,29 @@ export const GameFeedback = ({ feedback }) => {
 
   return (
     <div
-      className="fixed bottom-8 left-1/2 z-50 flex items-center gap-3 px-6 py-4 rounded-2xl font-bold text-lg"
+      className="fixed left-1/2 z-50 flex items-center gap-2 px-4 py-3 md:px-6 md:py-4 rounded-2xl font-bold text-base md:text-lg"
       style={{
         ...conf.style,
+        top: 'var(--feedback-top, 1rem)',
+        bottom: 'var(--feedback-bottom, auto)',
         transform: 'translateX(-50%)',
         backdropFilter: 'blur(20px)',
         fontFamily: "'Poppins', sans-serif",
         animation: 'fadeInUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
-        minWidth: '220px',
+        minWidth: '180px',
         justifyContent: 'center',
       }}
     >
       <span>{conf.icon}</span>
       <span>{feedback.message}</span>
+      <style>{`
+        @media (min-width: 768px) {
+          :root { --feedback-top: auto; --feedback-bottom: 2rem; }
+        }
+        @media (max-width: 767px) {
+          :root { --feedback-top: 13rem; --feedback-bottom: auto; }
+        }
+      `}</style>
     </div>
   );
 };
