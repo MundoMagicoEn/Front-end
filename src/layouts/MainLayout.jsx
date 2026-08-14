@@ -83,7 +83,7 @@ export const MainLayout = ({ children }) => {
             </div>
             <div>
               <h1 className="text-2xl font-black text-white tracking-tight leading-none" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                English <span style={{ background: 'linear-gradient(90deg, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Quest</span>
+                Mundo <span style={{ background: 'linear-gradient(90deg, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Cosmico</span> Test
               </h1>
               <p className="text-xs text-slate-400 font-semibold tracking-widest uppercase">Vocabulary Adventure</p>
             </div>
