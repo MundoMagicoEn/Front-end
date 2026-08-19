@@ -1,7 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import { levels } from '../data/levels';
+import { DEMO_LEVELS_COUNT } from '../../../utils/config';
 import { saveProgress, loadProgress, clearProgress } from '../utils/storage';
 import { useSound } from './useSound';
+
+const DEMO_LEVELS = levels.slice(0, DEMO_LEVELS_COUNT);
 
 export const useGameState = () => {
   const { playSelectCorrect, playLevelComplete, playError, playGameOver, playWin } = useSound();
@@ -29,11 +32,11 @@ export const useGameState = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
 
-  const currentLevel = levels[currentLevelIndex];
+  const currentLevel = DEMO_LEVELS[currentLevelIndex];
 
   // Derived state to avoid effect
   const isLevelComplete = currentLevel && foundObjects.length === currentLevel.objects.length;
-  const isGameComplete = isLevelComplete && currentLevelIndex === levels.length - 1;
+  const isGameComplete = isLevelComplete && currentLevelIndex === DEMO_LEVELS.length - 1;
 
   // Save state on change
   useEffect(() => {
@@ -98,7 +101,7 @@ export const useGameState = () => {
 
       if (nextFound.length === currentLevel.objects.length) {
         // Last object of the LAST level → game complete (You Win)
-        if (currentLevelIndex === levels.length - 1) {
+        if (currentLevelIndex === DEMO_LEVELS.length - 1) {
           playWin();
         } else {
           playLevelComplete();
@@ -126,7 +129,7 @@ export const useGameState = () => {
   };
 
   const nextLevel = () => {
-    if (currentLevelIndex < levels.length - 1) {
+    if (currentLevelIndex < DEMO_LEVELS.length - 1) {
       setCurrentLevelIndex(prev => prev + 1);
       setErrors(0);
       setFoundObjects([]);
@@ -151,7 +154,7 @@ export const useGameState = () => {
   return {
     currentLevel,
     currentLevelIndex,
-    totalLevels: levels.length,
+    totalLevels: DEMO_LEVELS.length,
     errors,
     foundObjects,
     selectedWord,

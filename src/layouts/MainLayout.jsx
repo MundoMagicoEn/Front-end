@@ -1,3 +1,5 @@
+import EarthLogo from '../components/EarthLogo';
+
 const STARS = Array.from({ length: 20 }, (_, i) => ({
   id: i,
   size: (((i * 7) % 3) + 1) + 'px',
@@ -79,11 +81,11 @@ export const MainLayout = ({ children }) => {
                 boxShadow: '0 0 20px rgba(99,102,241,0.4)',
               }}
             >
-              MC
+              <EarthLogo size={30} withOrbit={false} />
             </div>
             <div>
               <h1 className="text-2xl font-black text-white tracking-tight leading-none" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                Mundo <span style={{ background: 'linear-gradient(90deg, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Cosmico</span> Test
+                Mundo <span style={{ background: 'linear-gradient(90deg, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Cosmico</span>
               </h1>
               <p className="text-xs text-slate-400 font-semibold tracking-widest uppercase">Vocabulary Adventure</p>
             </div>

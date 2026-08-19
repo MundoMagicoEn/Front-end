@@ -1,7 +1,7 @@
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { MainLayout } from './layouts/MainLayout';
-import { Home } from './pages/Home';
+import { Landing } from './features/landing/view/Landing';
 import { Game } from './pages/Game';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <MainLayout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Landing />} />
           <Route path="/game" element={<Game />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

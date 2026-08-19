@@ -160,10 +160,10 @@ export const Game = () => {
                 You Won! 🏆
               </h3>
               <p className="text-slate-300 text-lg font-semibold mb-2">
-                Amazing! You completed all {totalLevels} levels!
+                ¡Completaste los {totalLevels} niveles de la demo!
               </p>
               <p className="text-slate-500 text-sm mb-8">
-                You are an English vocabulary champion.
+                Esta web es una versión de prueba, con solo {totalLevels} de los 15 escenarios del juego.
               </p>
 
               <div className="flex gap-3 flex-wrap justify-center">
@@ -175,7 +175,7 @@ export const Game = () => {
                     boxShadow: '0 0 20px rgba(99,102,241,0.4)',
                   }}
                 >
-                  <RotateCcw className="w-5 h-5" /> Play Again
+                  <RotateCcw className="w-5 h-5" /> Jugar de nuevo
                 </button>
                 <button
                   onClick={() => { playButton(); restartGame(); navigate('/'); }}
@@ -186,7 +186,7 @@ export const Game = () => {
                     color: '#e2e8f0',
                   }}
                 >
-                  <HomeIcon className="w-5 h-5" /> Home
+                  <HomeIcon className="w-5 h-5" /> Inicio
                 </button>
               </div>
             </div>
