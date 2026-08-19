@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSound } from '../../game/hooks/useSound';
+import { useSound } from '../../../hooks/useSound';
 
 export const useStartGame = () => {
   const navigate = useNavigate();

@@ -1,13 +1,13 @@
 import { useRef, useCallback } from 'react';
 
 // Import sound assets
-import soundLevelComplete from '../../../assets/audio/siguiente-nivel.mp3';
-import soundSelectCorrect from '../../../assets/audio/seleccion-correcta.mp3';
-import soundError    from '../../../assets/audio/equivocado.mp3';
-import soundGameOver from '../../../assets/audio/juego-finalizado-perdido.mp3';
-import soundWin      from '../../../assets/audio/juego-finalizado-ganado.mp3';
-import soundAplausos from '../../../assets/audio/aplausos.mp3';
-import soundButton   from '../../../assets/audio/botones.mp3';
+import soundLevelComplete from '../assets/audio/siguiente-nivel.mp3';
+import soundSelectCorrect from '../assets/audio/seleccion-correcta.mp3';
+import soundError    from '../assets/audio/equivocado.mp3';
+import soundGameOver from '../assets/audio/juego-finalizado-perdido.mp3';
+import soundWin      from '../assets/audio/juego-finalizado-ganado.mp3';
+import soundAplausos from '../assets/audio/aplausos.mp3';
+import soundButton   from '../assets/audio/botones.mp3';
 
 /**
  * Hook that provides game sound effects.

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useGameState } from '../features/game/hooks/useGameState';
-import { useSound } from '../features/game/hooks/useSound';
-import { GameBoard } from '../features/game/components/GameBoard';
-import { WordList } from '../features/game/components/WordList';
-import { GameStatus } from '../features/game/components/GameStatus';
-import { GameFeedback } from '../features/game/components/GameFeedback';
-import { GameTimer } from '../features/game/components/GameTimer';
-import { InstructionsModal } from '../features/game/components/InstructionsModal';
+import { useGameState } from '../hooks/useGameState';
+import { useSound } from '../../../hooks/useSound';
+import { GameBoard } from '../components/GameBoard';
+import { WordList } from '../components/WordList';
+import { GameStatus } from '../components/GameStatus';
+import { GameFeedback } from '../components/GameFeedback';
+import { GameTimer } from '../components/GameTimer';
+import { InstructionsModal } from '../components/InstructionsModal';
 import { ArrowRight, RotateCcw, Home as HomeIcon, Trophy, Star, Frown } from 'lucide-react';
 
 const OVERLAY_STYLES = {

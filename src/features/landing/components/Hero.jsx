@@ -1,5 +1,5 @@
 import { ArrowDown, Sparkles } from 'lucide-react';
-import { useSound } from '../../game/hooks/useSound';
+import { useSound } from '../../../hooks/useSound';
 import EarthLogo from '../../../components/EarthLogo';
 import { DEMO_LEVELS_COUNT, TOTAL_LEVELS } from '../../../utils/config';
 import { DemoNotice } from './DemoNotice';

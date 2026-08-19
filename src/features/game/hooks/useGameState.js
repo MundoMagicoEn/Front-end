@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { levels } from '../data/levels';
 import { DEMO_LEVELS_COUNT } from '../../../utils/config';
 import { saveProgress, loadProgress, clearProgress } from '../utils/storage';
-import { useSound } from './useSound';
+import { useSound } from '../../../hooks/useSound';
 
 const DEMO_LEVELS = levels.slice(0, DEMO_LEVELS_COUNT);
 

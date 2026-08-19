@@ -2,7 +2,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { MainLayout } from './layouts/MainLayout';
 import { Landing } from './features/landing/view/Landing';
-import { Game } from './pages/Game';
+import { Game } from './features/game/view/Game';
 
 function App() {
   return (
