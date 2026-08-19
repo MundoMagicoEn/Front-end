@@ -101,7 +101,7 @@ export const MainLayout = ({ children }) => {
         </div>
       </header>
 
-      <main className="flex-grow container mx-auto px-4 max-w-6xl py-8 flex flex-col relative z-10">
+      <main className="flex-grow w-full px-4 sm:px-6 lg:px-10 py-8 flex flex-col relative z-10">
         {children}
       </main>
     </div>

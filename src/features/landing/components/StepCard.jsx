@@ -1,5 +1,5 @@
 export const StepCard = ({ num, title, desc }) => (
-  <div className="relative rounded-2xl p-6">
+  <div className="relative rounded-2xl p-8">
     <div
       className="absolute inset-0 rounded-2xl opacity-0 hover:opacity-100 transition-opacity"
       style={{
@@ -8,7 +8,7 @@ export const StepCard = ({ num, title, desc }) => (
     />
     <div className="relative">
       <div
-        className="text-5xl font-black mb-3"
+        className="text-5xl font-black mb-4"
         style={{
           background: 'linear-gradient(90deg, #6366f1, #a855f7)',
           WebkitBackgroundClip: 'text',
