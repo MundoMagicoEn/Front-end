@@ -2,7 +2,6 @@ import { ArrowDown, Sparkles } from 'lucide-react';
 import { useSound } from '../../../hooks/useSound';
 import EarthLogo from '../../../components/EarthLogo';
 import { DEMO_LEVELS_COUNT, TOTAL_LEVELS } from '../../../utils/config';
-import { DemoNotice } from './DemoNotice';
 import { PlayButton } from './PlayButton';
 import { GameShowcase } from './GameShowcase';
 import { useStartGame } from '../hooks/useStartGame';
@@ -12,9 +11,8 @@ export const Hero = () => {
   const { playButton } = useSound();
 
   return (
-    <section className="w-full grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-110px)] py-12 md:py-16">
+    <section className="grid lg:grid-cols-2 gap-12 p-15 lg:gap-16 items-center min-h-[calc(100vh-110px)] py-12 md:py-16">
       <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-        <DemoNotice />
 
         <div className="flex items-center gap-3 mb-6">
           <div className="relative">

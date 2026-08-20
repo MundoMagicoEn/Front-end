@@ -40,7 +40,7 @@ export const InstructionsModal = ({ onStart }) => {
             <strong className="text-pink-400">3. Rápido y preciso:</strong> Tienes <strong>60 segundos</strong> y <strong>3 vidas</strong> por nivel. Si fallas 3 veces o el tiempo se acaba, ¡pierdes el juego!
           </p>
           <p className="text-center text-yellow-400 font-bold mt-4">
-            ¡Tienes 3 vidas! ¿Podrás pasar todos los niveles?
+            ¿Podrás superar todos los niveles?
           </p>
         </div>
 

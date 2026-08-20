@@ -157,13 +157,13 @@ export const Game = () => {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                You Won! 🏆
+                You Won!
               </h3>
               <p className="text-slate-300 text-lg font-semibold mb-2">
                 ¡Completaste los {totalLevels} niveles de la demo!
               </p>
               <p className="text-slate-500 text-sm mb-8">
-                Esta web es una versión de prueba, con solo {totalLevels} de los 15 escenarios del juego.
+                Esta web es una versión de prueba, con solo {totalLevels} de los 15 escenarios del juego y con menos palabras.
               </p>
 
               <div className="flex gap-3 flex-wrap justify-center">
