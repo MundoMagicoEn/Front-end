@@ -14,33 +14,7 @@ export const Hero = () => {
     <section className="grid lg:grid-cols-2 gap-12 p-15 lg:gap-16 items-center min-h-[calc(100vh-110px)] py-12 md:py-16">
       <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
 
-        <div className="flex items-center gap-3 mb-6">
-          <div className="relative">
-            <div
-              className="absolute inset-0 rounded-full"
-              style={{
-                background: 'radial-gradient(circle, rgba(56,189,248,0.3) 0%, rgba(99,102,241,0.15) 45%, transparent 70%)',
-                transform: 'scale(1.8)',
-              }}
-            />
-            <div className="relative animate-float">
-              <EarthLogo size={64} />
-            </div>
-          </div>
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold"
-            style={{
-              background: 'linear-gradient(135deg, rgba(99,102,241,0.25), rgba(168,85,247,0.25))',
-              border: '1px solid rgba(99,102,241,0.4)',
-              color: '#a5b4fc',
-            }}
-          >
-            <Sparkles className="w-4 h-4" />
-            Juego educativo gratuito
-          </div>
-        </div>
-
-        <p className="text-slate-400 font-semibold tracking-[0.3em] uppercase text-sm mb-3">
+        <p className="text-slate-100 font-bold tracking-[0.3em] uppercase text-sm mb-3">
           Bienvenido a
         </p>
 
